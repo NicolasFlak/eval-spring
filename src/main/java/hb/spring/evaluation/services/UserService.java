@@ -39,13 +39,17 @@ public class UserService {
         List<UserDTO> localUsersDTOs = new ArrayList<>();
 
         localUsers.forEach((localUser -> {
-            localUsersDTOs.add(new UserDTO(localUser.getId(), localUser.getUsername(), localUser.getRole()));
+            localUsersDTOs.add(new UserDTO(localUser.getId(), localUser.getUsername(), localUser.getCategories()));
         }));
         return localUsersDTOs;
     }
 
+//    public UserDTO getUserById(Integer id) {
+//        LocalUser localUser = userRepository.getUserById(id);
+//        return null;
+//    }
 
-    //    On passe d'un UserDTO à un LocalUser :
+
     public void saveUser(UserFormDTO userFormDTO) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(userFormDTO.password());
@@ -53,11 +57,9 @@ public class UserService {
         LocalUser localUser = new LocalUser();
 
         localUser.setUsername(userFormDTO.username());
-<<<<<<< HEAD
-        localUser.setPassword(userFormDTO.password());
-=======
+
         localUser.setPassword(encodedPassword);
->>>>>>> 3c2f3378f38cf7f356e6ae558e47057a73f30759
+
         localUser.setRole("USER");
 
         Set<ConstraintViolation<LocalUser>> violations = validatorFactory.getValidator().validate(localUser);
@@ -69,4 +71,10 @@ public class UserService {
             violations.forEach((violation) -> { logger.error(violation.getMessage()); });
         }
     }
+
+    public UserDTO getUserByUsername(String username) {
+        LocalUser localUser = userRepository.getUserByUsername(username);
+        return new UserDTO(localUser.getId(), localUser.getUsername(), localUser.getCategories());
+    }
+
 }

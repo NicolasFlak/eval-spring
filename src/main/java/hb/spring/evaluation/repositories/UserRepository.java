@@ -46,6 +46,18 @@ public class UserRepository {
         return null;
     }
 
+//    public LocalUser getUserById(Integer id) {
+//
+//        List<LocalUser> users = getUsers();
+//
+//        for (LocalUser user : users) {
+//            if (user.getId().equals(id)) {
+//                return user;
+//            }
+//        }
+//        return null;
+//    }
+
     public void save(LocalUser user) {
         List<LocalUser> existingsUsers = getUsers();
         int newId = 0;
