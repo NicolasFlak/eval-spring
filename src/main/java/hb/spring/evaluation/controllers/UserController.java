@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("private/user")
+@RequestMapping("private/profile")
 public class UserController {
 
     private UserService userService;
@@ -22,9 +22,17 @@ public class UserController {
     @GetMapping("")
     public ModelAndView adminPage() {
         List<UserDTO> localUsers = userService.getUsers();
-        ModelAndView mav = new ModelAndView("admin");
+        ModelAndView mav = new ModelAndView("profile");
         mav.addObject("users", localUsers);
         return mav;
     }
+
+//    @GetMapping("/")
+//    public ModelAndView profilePage(Integer id) {
+//        UserDTO localUser = userService.getUserById(id);
+//        ModelAndView mav = new ModelAndView("profile");
+//        mav.addObject("user", localUser);
+//        return mav;
+//    }
 
 }

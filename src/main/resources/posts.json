@@ -1,0 +1,25 @@
+[ {
+  "id" : 0,
+  "title" : "Salut Romain",
+  "content" : "On s'amuse ici !",
+  "creatorName" : "admin",
+  "creationDate" : 1676313970039
+}, {
+  "id" : 1,
+  "title" : "Test",
+  "content" : "Test !",
+  "creatorName" : "admin",
+  "creationDate" : 1676313970039
+}, {
+  "id" : 2,
+  "title" : "On peux même ajouter des posts !",
+  "content" : "Regardez moi ce beau bouton !",
+  "creatorName" : "admin",
+  "creationDate" : 1676314112613
+}, {
+  "id" : 3,
+  "title" : "TestTest",
+  "content" : "testtest",
+  "creatorName" : "admin",
+  "creationDate" : 1676314146359
+} ]

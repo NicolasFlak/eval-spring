@@ -1,0 +1,31 @@
+[ {
+  "id" : 0,
+  "username" : "admin",
+  "password" : "$2a$10$q57.ekwI1X5mZT237IBhZuOCbuovLYcwM38fmyKaGzDr2XiVlAiby",
+  "categories" : [ "Java", "PHP" ],
+  "role" : "USER"
+}, {
+  "id" : 1,
+  "username" : "test",
+  "password" : "$2a$10$r84IdpdB.aa.uhb5aM6ype/n92.EpgpQYZNyOM6r/m6zeCnoECFde",
+  "categories" : null,
+  "role" : "USER"
+}, {
+  "id" : 2,
+  "username" : "user",
+  "password" : "$2a$10$Vxl2sDKgfG6KxYh0uJDNAOsGgqn16FWDbwZaBbKSvPmd6enZblb0a",
+  "categories" : null,
+  "role" : "USER"
+}, {
+  "id" : 3,
+  "username" : "tre",
+  "password" : "$2a$10$drWSXsGoEML7xi6P00xNFu7uhkeCzqfuR1TrHW8OBv4WWhL6YkpvC",
+  "categories" : null,
+  "role" : "USER"
+}, {
+  "id" : 4,
+  "username" : "TestCompte",
+  "password" : "$2a$10$Y21/QmUt/CNvMGSDeEpqjOM11sZMu5LN1CJb.AiQCqd4thkayRdp2",
+  "categories" : null,
+  "role" : "USER"
+} ]

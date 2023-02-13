@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts list</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <h1>Posts List</h1>
+
+    <br>
+    <a th:href="@{/}">Accueil</a>
+    <br>
+    <a th:href="@{/private/post/newPost}">Ajouter un post</a>
+    <br>
+
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="post: ${posts}">
+        <td><span th:text="${post.title}"></span></td>
+        <td><span th:text="${post.content}"></span></td>
+
+<!--        <td><a th:href="@{/private/comment/add/{idPost}(idPost=${post.id})}">Add comment</a></td>-->
+<!--        <td><a th:href="@{/private/comment/getbyidpost/{idPost}(idPost=${post.id})}">List des commentaires de ce poste</a></td>-->
+
+        <!--                <td><a th:href="@{/private/comment/getbyidpost/{idPost}(idPost=${post.id})}">Comments list</a></td>-->
+        <!--                <td><a th:href="@{/private/comment/add/{idPost}(idPost=${post.id})}">Add comment</a></td>-->
+
+        <!--                <td>-->
+        <!--                    <form th:action="@{/private/post/newcomment}" th:object="${newComment}">-->
+        <!--                        <div>-->
+        <!--                            <label for="commentaire">Commentaire</label>-->
+        <!--                            <input type="text" name="commentaire" id="commentaire" field="*{commentaire}">-->
+        <!--                        </div>-->
+        <!--                        <input type="hidden" th.value="${post.id}" field="*{idPost}">-->
+        <!--                        <div>-->
+        <!--                            <input type="submit" value="Post" />-->
+        <!--                        </div>-->
+        <!--                    </form>-->
+        <!--                </td>-->
+
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>

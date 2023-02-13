@@ -46,6 +46,18 @@ public class UserRepository {
         return null;
     }
 
+//    public LocalUser getUserById(Integer id) {
+//
+//        List<LocalUser> users = getUsers();
+//
+//        for (LocalUser user : users) {
+//            if (user.getId().equals(id)) {
+//                return user;
+//            }
+//        }
+//        return null;
+//    }
+
     public void save(LocalUser user) {
         List<LocalUser> existingsUsers = getUsers();
         int newId = 0;
@@ -61,8 +73,6 @@ public class UserRepository {
         try {
             File resourceJson = new File("src/main/resources/users.json");
             String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(existingsUsers);
-
-            logger.info(jsonString);
 
             BufferedWriter writer = new BufferedWriter(new FileWriter(resourceJson));
             writer.write(jsonString);

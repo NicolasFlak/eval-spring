@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile page</title>
+</head>
+<body>
+
+<h1>Profile page</h1>
+
+<br>
+<a th:href="@{http://localhost:8080}">Accueil</a>
+<br>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Categories</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <td><span th:text="${user.username}"></span></td>
+
+    <td th:each="category : ${user.categories}">
+        <span th:text="${category.name}"></span>
+    </td>
+
+    </tbody>
+
+</table>
+
+</body>
+</html>
