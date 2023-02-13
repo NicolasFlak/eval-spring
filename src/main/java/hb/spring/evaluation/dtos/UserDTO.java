@@ -1,4 +1,8 @@
 package hb.spring.evaluation.dtos;
 
-public record UserDTO(Integer id, String username, String categories) {
+import hb.spring.evaluation.models.Category;
+
+import java.util.List;
+
+public record UserDTO(Integer id, String username, List<Category> categories) {
 }

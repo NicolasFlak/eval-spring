@@ -2,7 +2,9 @@ package hb.spring.evaluation.services;
 
 import hb.spring.evaluation.dtos.UserDTO;
 import hb.spring.evaluation.dtos.UserFormDTO;
+import hb.spring.evaluation.models.Category;
 import hb.spring.evaluation.models.LocalUser;
+import hb.spring.evaluation.repositories.ProfileRepository;
 import hb.spring.evaluation.repositories.UserRepository;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ValidatorFactory;
@@ -20,6 +22,7 @@ import java.util.Set;
 public class UserService {
 
     private UserRepository userRepository;
+    private ProfileService profileService;
 
     private PasswordEncoder passwordEncoder;
 
@@ -28,21 +31,14 @@ public class UserService {
     private static Logger logger = LoggerFactory.getLogger(UserService.class);
 
 
-    public UserService(UserRepository userRepository, ValidatorFactory validatorFactory) {
+    public UserService(UserRepository userRepository, ValidatorFactory validatorFactory, ProfileService profileService) {
 
         this.userRepository = userRepository;
         this.validatorFactory = validatorFactory;
+        this.profileService = profileService;
     }
 
-    public List<UserDTO> getUsers() {
-        List<LocalUser> localUsers = userRepository.getUsers();
-        List<UserDTO> localUsersDTOs = new ArrayList<>();
 
-        localUsers.forEach((localUser -> {
-            localUsersDTOs.add(new UserDTO(localUser.getId(), localUser.getUsername(), localUser.getCategories()));
-        }));
-        return localUsersDTOs;
-    }
 
 //    public UserDTO getUserById(Integer id) {
 //        LocalUser localUser = userRepository.getUserById(id);
@@ -72,9 +68,20 @@ public class UserService {
         }
     }
 
+    public List<UserDTO> getUsers() {
+        List<LocalUser> localUsers = userRepository.getUsers();
+        List<UserDTO> localUsersDTOs = new ArrayList<>();
+
+        localUsers.forEach((localUser -> {
+
+            localUsersDTOs.add(new UserDTO(localUser.getId(), localUser.getUsername(), this.profileService.getCategoryByUser(localUser)));
+        }));
+        return localUsersDTOs;
+    }
+
     public UserDTO getUserByUsername(String username) {
         LocalUser localUser = userRepository.getUserByUsername(username);
-        return new UserDTO(localUser.getId(), localUser.getUsername(), localUser.getCategories());
+        return new UserDTO(localUser.getId(), localUser.getUsername(), this.profileService.getCategoryByUser(localUser));
     }
 
 }

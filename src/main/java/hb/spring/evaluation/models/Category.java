@@ -4,15 +4,12 @@ public class Category {
 
     private String name;
 
-    private Integer idUser;
-
     public Category() {
 
     }
 
-    public Category(String name, Integer idUser) {
+    public Category(String name) {
         this.name = name;
-        this.idUser = idUser;
     }
 
     public String getName() {
@@ -21,14 +18,6 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Integer idUser) {
-        this.idUser = idUser;
     }
 
 

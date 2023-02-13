@@ -1,17 +1,19 @@
 package hb.spring.evaluation.models;
 
+import java.util.List;
+
 public class LocalUser {
 
     private Integer id;
     private String username;
     private String password;
-    private String categories;
+    private List<String> categories;
     private String role;
 
     public LocalUser() {
     }
 
-    public LocalUser(Integer id, String username, String password, String categories, String role) {
+    public LocalUser(Integer id, String username, String password, List<String> categories, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -42,11 +44,11 @@ public class LocalUser {
         this.password = password;
     }
 
-    public String getCategories() {
+    public List<String> getCategories() {
         return categories;
     }
 
-    public void setCategories(String categories) {
+    public void setCategories(List<String> categories) {
         this.categories = categories;
     }
 

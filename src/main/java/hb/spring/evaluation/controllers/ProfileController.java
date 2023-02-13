@@ -7,14 +7,13 @@ import hb.spring.evaluation.services.ProfileService;
 import hb.spring.evaluation.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 @Controller
+@RequestMapping(value ="/private/category")
 public class ProfileController {
 
     private ProfileService profileService;
@@ -27,12 +26,11 @@ public class ProfileController {
     }
 
 
-    @GetMapping("/private/category")
+    @GetMapping("")
     public ModelAndView getCategoryByUser() {
         UserDTO userDTO = userService.getUserByUsername(SecurityConfig.getUserName());
-        ModelAndView mav = new ModelAndView("categories");
-        List<Category> categories = profileService.getCategoryByIdUser(userDTO.id());
-        mav.addObject("categories", categories);
+        ModelAndView mav = new ModelAndView("profile");
+        mav.addObject("user", userDTO);
 
         return mav;
     }

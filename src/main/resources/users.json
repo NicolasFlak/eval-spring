@@ -2,7 +2,7 @@
   "id" : 0,
   "username" : "admin",
   "password" : "$2a$10$q57.ekwI1X5mZT237IBhZuOCbuovLYcwM38fmyKaGzDr2XiVlAiby",
-  "categories" : null,
+  "categories" : ["Java", "PHP"],
   "role" : "USER"
 }, {
   "id" : 1,

@@ -15,18 +15,19 @@
 <table>
     <thead>
     <tr>
-        <th>Id</th>
         <th>Name</th>
         <th>Categories</th>
     </tr>
     </thead>
 
     <tbody>
-    <tr th:each="user: ${users}">
-        <td><span th:text="${user.id}"></span></td>
-        <td><span th:text="${user.username}"></span></td>
-        <td><span th:text="${user.categories}"></span></td>
-    </tr>
+
+    <td><span th:text="${user.username}"></span></td>
+
+    <td th:each="category : ${user.categories}">
+        <span th:text="${category.name}"></span>
+    </td>
+
     </tbody>
 
 </table>
