@@ -1,16 +1,11 @@
 package hb.spring.evaluation.models;
 
-import org.springframework.security.core.GrantedAuthority;
-
-import java.util.List;
-
 public class LocalUser {
 
     private Integer id;
     private String username;
     private String password;
     private String categories;
-
     private String role;
 
     public LocalUser() {
