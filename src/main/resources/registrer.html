@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Home Page</title>
+</head>
+<body>
+
+<h1>Register</h1>
+<form action="" th:action="@{/registrer}" th:object="${user}" th:method="post">
+    <div class="form_username">
+        <label for="username">Username</label>
+        <input type="text" name="usermane" id="username" th:field="*{username}">
+    </div>
+    <div class="form_password">
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password" th:field="*{password}">
+    </div>
+    <input type="submit" value="Register" />
+</form>
+</body>
+</html>
