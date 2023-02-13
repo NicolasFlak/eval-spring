@@ -62,8 +62,6 @@ public class UserRepository {
             File resourceJson = new File("src/main/resources/users.json");
             String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(existingsUsers);
 
-            logger.info(jsonString);
-
             BufferedWriter writer = new BufferedWriter(new FileWriter(resourceJson));
             writer.write(jsonString);
             writer.close();

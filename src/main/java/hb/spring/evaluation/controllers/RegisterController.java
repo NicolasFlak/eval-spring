@@ -22,13 +22,16 @@ public class RegisterController {
     public ModelAndView getRegistrationForm() {
         ModelAndView mav = new ModelAndView("register");
         mav.addObject("user", new UserFormDTO("", ""));
+        System.out.println("get mav : " + mav);
         return mav;
     }
 
     @PostMapping("")
     public ModelAndView registrationUser(@ModelAttribute UserFormDTO user) {
+        System.out.println("dans le post, user : " + user);
         userService.saveUser(user);
         ModelAndView mav = new ModelAndView("redirect:/login");
+        System.out.println("dans post , mav : " + mav);
         return mav;
     }
 

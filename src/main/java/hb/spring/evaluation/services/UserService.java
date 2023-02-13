@@ -42,7 +42,7 @@ public class UserService {
     public void saveUser(UserFormDTO userFormDTO) {
         LocalUser localUser = new LocalUser();
         localUser.setUsername(userFormDTO.username());
-        localUser.setUsername(userFormDTO.password());
+        localUser.setPassword(userFormDTO.password());
         localUser.setRole("USER");
 
 
